@@ -1,0 +1,29 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int k=sc.nextInt();
+        int c=0,l=0,r=0,sum=0;
+        while(r<n)
+        {
+            sum+=arr[r];
+            if(sum<=k)
+            {
+                c=Math.max(r-l+1,c);
+            }
+            if(k<sum)
+            {
+                sum-=arr[l];
+                l++;
+            }
+            r++;
+        }
+        System.out.print(c);
+    }
+}
